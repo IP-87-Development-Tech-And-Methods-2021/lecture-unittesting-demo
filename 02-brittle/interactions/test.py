@@ -7,10 +7,6 @@ from unittest import mock
 from storage import Storage
 
 
-class Account():
-    pass
-
-
 class RegistrationSystem:
     def __init__(self):
         self.storage = Storage()

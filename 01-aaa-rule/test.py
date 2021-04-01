@@ -67,3 +67,13 @@ class TestHeapsterWatch(unittest.TestCase):
         watch.inc_minutes()
 
         self.assertEquals(watch.display(), "00:13")
+
+        watch = HeapsterWatch(23, 59)
+
+        watch.inc_minutes()
+
+        self.assertEquals(watch.display(), "00:00")
+
+        watch.dec_minutes()
+
+        self.assertEquals(watch.display(), "23:59")

@@ -18,7 +18,7 @@ class RegistrationSystem:
     def retrieve_account(self, username: str) -> Optional[dict]:
         accounts = self.storage.list_all()
         for account in accounts:
-            if account.username == username:
+            if account['username'] == username:
                 return account
         return None
 

@@ -7,8 +7,8 @@ class Storage:
         self._kv = {}
 
     def put(self, account: dict):
-        # if account.username not in self._kv:
-        #     self._kv[account.username] = account
+        # if account.get['username'] not in self._kv:
+        #     self._kv[account['username']] = account
         pass
 
     def find_by_username(self, username: str) -> Optional[dict]:

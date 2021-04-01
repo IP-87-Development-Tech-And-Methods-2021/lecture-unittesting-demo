@@ -15,6 +15,11 @@ class HeapsterWatch:
 
         self._minutes = 60 * hours + minutes
 
+    def _normalize(self):
+        self._minutes %= 1440
+        # self._hours %= 23
+        # self._minutes %= 59
+
     def display(self) -> str:
         hours = (self._minutes // 60) % 24
         minutes = (self._minutes % 60)
@@ -24,21 +29,25 @@ class HeapsterWatch:
 
     def inc_hours(self):
         self._minutes += 60
-        self._minutes %= 1440
         # self._hours += 1
+        self._normalize()
 
     def dec_hours(self):
         self._minutes -= 60
-        self._minutes %= 1440
         # self._hours -= 1
+        self._normalize()
 
     def inc_minutes(self):
         self._minutes += 1
-        self._minutes %= 1440
+        # if self._minutes > 59:
+        #     self._hours += 1
+        self._normalize()
 
     def dec_minutes(self):
         self._minutes -= 1
-        self._minutes %= 1440
+        # if self._minutes < 0:
+        #     self._hours -= 1
+        self._normalize()
 
 
 # =====
